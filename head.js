@@ -1,12 +1,12 @@
 var request = require('request');
 var fs = require('fs');
 //vehicleid~directionid~headingid~lat~lon
-request('http://159.203.17.134:3535/agencies/ttc/routes', function (error, response, res) {
+request('http://restbus.info/api/agencies/ttc/routes', function (error, response, res) {
   var theResponse = JSON.parse(res);
   setInterval(function(){
     var itemsProcessed = 0;
     theResponse.forEach(function(element){
-      request('http://159.203.17.134:3535/agencies/ttc/routes/'+element.id+'/vehicles', function (error, response, body) {
+      request('http://restbus.info/api/agencies/ttc/routes/'+element.id+'/vehicles', function (error, response, body) {
         itemsProcessed++;
         if (!error && response.statusCode == 200 && body != '[]' ) {
           var parsed = JSON.parse(body);

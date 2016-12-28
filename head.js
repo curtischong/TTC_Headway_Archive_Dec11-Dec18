@@ -19,6 +19,6 @@ request('http://restbus.info/api/agencies/ttc/routes', function (error, response
       //console.log(itemsProcessed + " calls executed");
     });
   });
-  //every 2 minutes, we will pull NextBus' TTC data
+  //every 20 seconds, we will pull NextBus' TTC data
 }, 20000);
 });
